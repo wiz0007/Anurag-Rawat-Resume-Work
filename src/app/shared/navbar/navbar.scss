@@ -1,0 +1,48 @@
+@use "../../../styles/variables" as *;
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+
+  backdrop-filter: blur(16px);
+
+  background: rgba(255,255,255,.8);
+
+  border-bottom: 1px solid $border;
+
+  &__wrapper {
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: $primary;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+
+  a {
+    text-decoration: none;
+    color: $text-primary;
+    font-weight: 500;
+  }
+}
+
+.resume-btn {
+  background: $primary;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+}

@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@use "./styles/variables" as *;
+@use "./styles/mixins" as *;
+@use "./styles/animations";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: $background;
+  color: $text-primary;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: min(1200px, 90%);
+  margin: auto;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+h1,h2,h3,h4 {
+  font-family: "Poppins", sans-serif;
+}

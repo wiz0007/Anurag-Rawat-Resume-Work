@@ -1,0 +1,51 @@
+@use "../../../styles/variables" as *;
+
+.skills-grid {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  justify-content: center;
+}
+
+.skill-card {
+  padding: 14px 22px;
+
+  background: white;
+
+  border: 1px solid $border;
+
+  border-radius: 999px;
+
+  font-weight: 500;
+
+  transition: $transition;
+
+  cursor: default;
+
+  &:hover {
+    background: $primary;
+
+    color: white;
+
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strengths-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+}

@@ -8,12 +8,15 @@
   gap: 1rem;
 
   justify-content: center;
+  animation: fadeUp 0.75s ease both;
 }
 
 .skill-card {
+  position: relative;
+  overflow: hidden;
   padding: 14px 22px;
 
-  background: white;
+  background: rgba(255, 255, 255, 0.07);
 
   border: 1px solid $border;
 
@@ -24,28 +27,38 @@
   transition: $transition;
 
   cursor: default;
+  backdrop-filter: blur(16px);
+  animation: scaleIn 0.7s ease both;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 0 35%, rgba(255, 255, 255, 0.22) 45%, transparent 55% 100%);
+    transform: translateX(-120%);
+  }
 
   &:hover {
-    background: $primary;
+    background: linear-gradient(135deg, $primary, $accent);
 
     color: white;
 
     transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(139, 92, 246, 0.22);
+  }
+
+  &:hover::before {
+    animation: shimmer 0.8s ease;
   }
 }
 
-@media (max-width: 768px) {
-
-  .about-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 640px) {
+  .skills-grid {
+    justify-content: stretch;
   }
 
-  .strengths-grid {
-    grid-template-columns: 1fr;
+  .skill-card {
+    width: 100%;
+    text-align: center;
   }
-
-  .section-header h2 {
-    font-size: 2rem;
-  }
-
 }

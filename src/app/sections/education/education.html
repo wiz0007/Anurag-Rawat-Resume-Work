@@ -1,1 +1,48 @@
-<p>education works!</p>
+<section
+  class="education section"
+  id="education"
+>
+  <div class="container">
+
+    <div class="section-header">
+
+      <span class="section-tag">
+        Education
+      </span>
+
+      <h2>
+        Academic Background
+      </h2>
+
+    </div>
+
+    <div class="education-grid">
+
+      @for(item of education; track item.degree){
+
+      <div class="education-card">
+
+        <div class="education-icon">
+          ED
+        </div>
+
+        <h3>
+          {{ item.degree }}
+        </h3>
+
+        <p>
+          {{ item.institute }}
+        </p>
+
+        <span>
+          {{ item.year }}
+        </span>
+
+      </div>
+
+      }
+
+    </div>
+
+  </div>
+</section>

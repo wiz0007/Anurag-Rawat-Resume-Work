@@ -2,8 +2,29 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-achievements',
-  imports: [],
+  standalone: true,
   templateUrl: './achievements.html',
-  styleUrl: './achievements.scss',
+  styleUrls: ['./achievements.scss']
 })
-export class Achievements {}
+export class Achievements {
+
+  achievements = [
+    {
+      value: '100+',
+      label: 'Interviews Coordinated'
+    },
+    {
+      value: '50+',
+      label: 'Successful Onboardings'
+    },
+    {
+      value: '20+',
+      label: 'Events Organized'
+    },
+    {
+      value: '100%',
+      label: 'Documentation Accuracy'
+    }
+  ];
+
+}

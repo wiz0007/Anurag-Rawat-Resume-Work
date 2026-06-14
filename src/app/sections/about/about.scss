@@ -1,9 +1,16 @@
 @use "../../../styles/variables" as *;
 
+.about {
+  background:
+    radial-gradient(circle at 8% 26%, rgba(34, 211, 238, 0.12), transparent 24rem),
+    rgba(255, 255, 255, 0.02);
+}
+
 .section-header {
   text-align: center;
 
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
+  animation: fadeUp 0.75s ease both;
 }
 
 .section-tag {
@@ -17,7 +24,8 @@
 }
 
 .section-header h2 {
-  font-size: 2.8rem;
+  font-size: 3rem;
+  line-height: 1.15;
 
   max-width: 700px;
 
@@ -40,6 +48,8 @@
   line-height: 1.9;
 
   margin-bottom: 1.5rem;
+  font-size: 1.03rem;
+  animation: slideInLeft 0.75s ease both;
 }
 
 .strengths-grid {
@@ -51,22 +61,54 @@
 }
 
 .strength-card {
-  background: white;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
 
   padding: 2rem;
 
-  border-radius: 20px;
+  border-radius: 8px;
 
   box-shadow: $shadow-sm;
 
   transition: $transition;
 
   border: 1px solid $border;
+  backdrop-filter: blur(18px);
+  animation: scaleIn 0.75s ease both;
+
+  &:nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.16s;
+  }
+
+  &:nth-child(4) {
+    animation-delay: 0.24s;
+  }
 
   &:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
 
     box-shadow: $shadow-md;
+    border-color: rgba(34, 211, 238, 0.32);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: auto 1rem 0;
+    height: 3px;
+    background: linear-gradient(90deg, $primary, $accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.28s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
   }
 
   i {
@@ -100,4 +142,16 @@
     font-size: 2rem;
   }
 
+  .strength-card {
+    padding: 1.4rem;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-header,
+  .about-content p,
+  .strength-card {
+    animation: none;
+  }
 }

@@ -1,0 +1,160 @@
+@use "../../../styles/variables" as *;
+
+.experience {
+  background:
+    linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(34, 211, 238, 0.04)),
+    transparent;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 4rem auto 0;
+  animation: fadeUp 0.75s ease both;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 25px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      $accent,
+      rgba(139, 92, 246, 0.18)
+    );
+  }
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 90px;
+  margin-bottom: 3rem;
+  animation: slideInLeft 0.75s ease both;
+
+  &:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 16px;
+  top: 28px;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: $accent;
+
+  border: 4px solid $background;
+
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.18), 0 0 28px rgba(34, 211, 238, 0.28);
+}
+
+.timeline-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
+
+  border-radius: 8px;
+
+  padding: 2rem;
+
+  border: 1px solid $border;
+
+  box-shadow: $shadow-sm;
+
+  transition: $transition;
+  backdrop-filter: blur(18px);
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-md;
+    border-color: rgba(34, 211, 238, 0.32);
+  }
+}
+
+.timeline-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0 38%, rgba(255, 255, 255, 0.11) 50%, transparent 62% 100%);
+  transform: translateX(-120%);
+}
+
+.timeline-card:hover::before {
+  animation: shimmer 0.9s ease;
+}
+
+.duration {
+  display: inline-block;
+
+  background: rgba(34, 211, 238, 0.12);
+
+  color: $accent;
+
+  padding: 0.5rem 1rem;
+
+  border-radius: 999px;
+
+  font-size: 0.875rem;
+
+  font-weight: 600;
+
+  margin-bottom: 1rem;
+}
+
+.timeline-card h3 {
+  margin-bottom: 0.4rem;
+
+  font-size: 1.4rem;
+
+  color: $text-primary;
+}
+
+.timeline-card h4 {
+  margin-bottom: 1rem;
+
+  color: $primary;
+
+  font-weight: 600;
+}
+
+.timeline-card ul {
+  padding-left: 1.25rem;
+}
+
+.timeline-card li {
+  color: $text-secondary;
+
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+
+  .timeline::before {
+    left: 15px;
+  }
+
+  .timeline-item {
+    padding-left: 42px;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-dot {
+    left: 6px;
+  }
+
+  .timeline-card {
+    padding: 1.4rem;
+  }
+
+}

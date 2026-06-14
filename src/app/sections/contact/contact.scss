@@ -1,0 +1,141 @@
+@use "../../../styles/variables" as *;
+
+.contact-box {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(34, 211, 238, 0.1)),
+    rgba(255, 255, 255, 0.07);
+
+  padding: 4rem;
+
+  border-radius: 8px;
+
+  text-align: center;
+
+  box-shadow: $shadow-md;
+  border: 1px solid $border;
+  backdrop-filter: blur(20px);
+  animation: fadeUp 0.75s ease both;
+}
+
+.contact-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0 46%, rgba(255, 255, 255, 0.08) 46% 47%, transparent 47% 100%);
+  pointer-events: none;
+}
+
+.contact-box > * {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-box h2 {
+  margin: 1rem 0;
+  font-size: 3rem;
+}
+
+.contact-box p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: $text-secondary;
+  line-height: 1.8;
+}
+
+.contact-items {
+  margin-top: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.contact-item {
+  position: relative;
+  overflow: hidden;
+  padding: 1.1rem;
+
+  border-radius: 8px;
+
+  background: rgba(8, 10, 18, 0.5);
+
+  border: 1px solid $border;
+  min-width: 0;
+  transition: $transition;
+  animation: scaleIn 0.75s ease both;
+
+  &:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(34, 211, 238, 0.36);
+    box-shadow: $shadow-sm;
+  }
+}
+
+.contact-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 0 35%, rgba(255, 255, 255, 0.12) 45%, transparent 55% 100%);
+  transform: translateX(-120%);
+}
+
+.contact-item:hover::before {
+  animation: shimmer 0.9s ease;
+}
+
+.contact-item span,
+.contact-item strong {
+  display: block;
+}
+
+.contact-item span {
+  margin-bottom: 0.45rem;
+  color: $accent;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.contact-item strong {
+  color: $text-primary;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 860px) {
+  .contact-items {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-box {
+    padding: 2rem 1.1rem;
+  }
+
+  .contact-box h2 {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  .contact-box p {
+    font-size: 0.98rem;
+  }
+
+  .contact-item {
+    width: 100%;
+    padding: 1rem 0.8rem;
+  }
+}

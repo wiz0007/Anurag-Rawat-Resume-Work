@@ -1,0 +1,88 @@
+@use "../../../styles/variables" as *;
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 2rem;
+  animation: fadeUp 0.75s ease both;
+}
+
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
+
+  padding: 2rem;
+
+  border-radius: 8px;
+
+  text-align: center;
+
+  border: 1px solid $border;
+
+  box-shadow: $shadow-sm;
+  backdrop-filter: blur(18px);
+  transition: $transition;
+  animation: scaleIn 0.75s ease both;
+
+  &:nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.16s;
+  }
+
+  &:nth-child(4) {
+    animation-delay: 0.24s;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: rgba(34, 211, 238, 0.32);
+    box-shadow: $shadow-md;
+  }
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 0 34%, rgba(255, 255, 255, 0.14) 46%, transparent 58% 100%);
+  transform: translateX(-120%);
+}
+
+.stat-card:hover::before {
+  animation: shimmer 0.85s ease;
+}
+
+.stat-card h3 {
+  color: $accent;
+
+  font-size: 2.5rem;
+
+  margin-bottom: .5rem;
+}
+
+.stat-card p {
+  color: $text-secondary;
+}
+
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem 1rem;
+  }
+}

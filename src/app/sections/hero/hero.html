@@ -1,48 +1,65 @@
-<section class="hero">
-
+<section class="hero" id="home">
   <div class="container hero__wrapper">
 
     <div class="hero__content">
-
       <span class="badge">
-        HR Coordinator
+        {{ profile.role }}
       </span>
 
       <h1>
-        Building Strong Teams
-        Through People &
-        Process Excellence
+        {{ profile.name }}
       </h1>
 
+      <h2>
+        {{ profile.tagline }}
+      </h2>
+
       <p>
-        HR professional experienced in recruitment,
-        onboarding, employee coordination,
-        documentation and workplace operations.
+        I coordinate people operations, recruitment support and onboarding
+        workflows with a steady focus on clear communication, organized
+        documentation and better employee experiences.
       </p>
 
       <div class="hero__actions">
-
-        <a href="#experience" class="primary-btn">
-          View Experience
-        </a>
-
-        <a href="#contact" class="secondary-btn">
+        <a class="primary-btn" href="#contact">
           Contact Me
         </a>
 
+        <a class="secondary-btn" href="#about">
+          View Profile
+        </a>
       </div>
 
+      <div class="hero__highlights" aria-label="Professional highlights">
+        <div>
+          <strong>HR</strong>
+          <span>Operations</span>
+        </div>
+
+        <div>
+          <strong>Recruitment</strong>
+          <span>Support</span>
+        </div>
+
+        <div>
+          <strong>Employee</strong>
+          <span>Coordination</span>
+        </div>
+      </div>
     </div>
 
-    <div class="hero__image">
+    <div class="hero__visual">
+      <div class="hero__image">
+        <img
+          src="images/anurag-rawat.jpg"
+          alt="Anurag Rawat"
+        />
+      </div>
 
-      <img
-        src="assets/images/profile.jpg"
-        alt="HR Coordinator"
-      />
-
+      <div class="hero__note">
+        <span>Available for HR Coordinator roles</span>
+      </div>
     </div>
 
   </div>
-
 </section>

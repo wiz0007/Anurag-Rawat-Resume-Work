@@ -2,8 +2,25 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-certifications',
-  imports: [],
+  standalone: true,
   templateUrl: './certifications.html',
-  styleUrl: './certifications.scss',
+  styleUrls: ['./certifications.scss']
 })
-export class Certifications {}
+export class Certifications {
+
+  certifications = [
+    {
+      title: 'Advanced MS Excel'
+    },
+    {
+      title: 'HR Documentation'
+    },
+    {
+      title: 'Recruitment & Talent Acquisition'
+    },
+    {
+      title: 'Employee Relations'
+    }
+  ];
+
+}

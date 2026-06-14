@@ -1,0 +1,16 @@
+@use "../../../styles/variables" as *;
+
+.footer {
+  padding: 2rem 0;
+
+  text-align: center;
+
+  color: $text-secondary;
+  border-top: 1px solid $border;
+  background: rgba(8, 10, 18, 0.78);
+  animation: fadeUp 0.75s ease both;
+}
+
+.footer p {
+  margin: 0;
+}

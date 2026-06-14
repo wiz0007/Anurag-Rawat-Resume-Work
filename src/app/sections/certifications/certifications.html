@@ -1,1 +1,42 @@
-<p>certifications works!</p>
+<section
+  class="certifications section"
+  id="certifications"
+>
+
+  <div class="container">
+
+    <div class="section-header">
+
+      <span class="section-tag">
+        Certifications
+      </span>
+
+      <h2>
+        Professional Development
+      </h2>
+
+    </div>
+
+    <div class="cert-grid">
+
+      @for(cert of certifications; track cert.title){
+
+      <div class="cert-card">
+
+        <div class="cert-icon">
+          OK
+        </div>
+
+        <h3>
+          {{ cert.title }}
+        </h3>
+
+      </div>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>

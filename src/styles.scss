@@ -10,7 +10,10 @@ html {
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background: $background;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(139, 92, 246, 0.22), transparent 28rem),
+    radial-gradient(circle at 88% 22%, rgba(34, 211, 238, 0.14), transparent 30rem),
+    linear-gradient(135deg, #070812 0%, #10131f 52%, #17111f 100%);
   color: $text-primary;
 }
 
@@ -25,8 +28,47 @@ body {
 
 .section {
   padding: 100px 0;
+  position: relative;
+  overflow: hidden;
 }
 
 h1,h2,h3,h4 {
   font-family: "Poppins", sans-serif;
+}
+
+.section-header {
+  color: $text-primary;
+  animation: fadeUp 0.75s ease both;
+}
+
+.section-tag {
+  color: $accent;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 28px, 1200px);
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    line-height: 1.18;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+  }
 }

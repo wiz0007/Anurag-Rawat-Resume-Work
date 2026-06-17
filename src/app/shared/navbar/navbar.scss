@@ -22,6 +22,7 @@
 }
 
 .logo {
+  text-decoration: none;
   font-weight: 700;
   font-size: 1.5rem;
   color: $primary;
@@ -37,18 +38,31 @@
   margin: 0;
 
   a {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
     text-decoration: none;
     color: $text-primary;
     font-weight: 500;
     transition: $transition;
 
     &:hover {
-      color: $primary;
+      color: $accent;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $accent;
+      outline-offset: 4px;
+      border-radius: 6px;
     }
   }
 }
 
 .resume-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
   background: linear-gradient(135deg, $primary, $accent);
   color: white;
   padding: 12px 20px;
@@ -63,6 +77,12 @@
 .resume-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 34px rgba(34, 211, 238, 0.22);
+}
+
+.logo:focus-visible,
+.resume-btn:focus-visible {
+  outline: 2px solid $accent;
+  outline-offset: 4px;
 }
 
 @media (max-width: 760px) {
@@ -91,8 +111,22 @@
 }
 
 @media (max-width: 420px) {
+  .navbar {
+    &__wrapper {
+      justify-content: center;
+    }
+  }
+
+  .logo,
+  .resume-btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
   .nav-links {
     gap: 0.8rem;
     font-size: 0.86rem;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
 }

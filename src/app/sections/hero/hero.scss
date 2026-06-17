@@ -142,6 +142,11 @@
   line-height: 1.35;
 }
 
+.hero__slider:hover .hero__slide,
+.hero__slider:focus-within .hero__slide {
+  animation-play-state: paused;
+}
+
 .primary-btn,
 .secondary-btn {
   display: inline-flex;
@@ -158,6 +163,12 @@
 .primary-btn:hover,
 .secondary-btn:hover {
   transform: translateY(-3px);
+}
+
+.primary-btn:focus-visible,
+.secondary-btn:focus-visible {
+  outline: 2px solid $accent;
+  outline-offset: 4px;
 }
 
 .primary-btn {

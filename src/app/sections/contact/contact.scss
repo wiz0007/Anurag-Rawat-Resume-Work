@@ -55,6 +55,7 @@
 .contact-item {
   position: relative;
   overflow: hidden;
+  display: block;
   padding: 1.1rem;
 
   border-radius: 8px;
@@ -63,6 +64,7 @@
 
   border: 1px solid $border;
   min-width: 0;
+  text-decoration: none;
   transition: $transition;
   animation: scaleIn 0.75s ease both;
 
@@ -78,6 +80,11 @@
     transform: translateY(-6px);
     border-color: rgba(34, 211, 238, 0.36);
     box-shadow: $shadow-sm;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 4px;
   }
 }
 

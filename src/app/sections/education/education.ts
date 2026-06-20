@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { RevealDirective } from '../../shared/reveal/reveal.directive';
 
 @Component({
   selector: 'app-education',
   standalone: true,
+  imports: [RevealDirective],
   templateUrl: './education.html',
   styleUrl: './education.scss'
 })

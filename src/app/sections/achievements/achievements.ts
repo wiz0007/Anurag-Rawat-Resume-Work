@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { RevealDirective } from '../../shared/reveal/reveal.directive';
 
 @Component({
   selector: 'app-achievements',
   standalone: true,
+  imports: [RevealDirective],
   templateUrl: './achievements.html',
   styleUrls: ['./achievements.scss']
 })

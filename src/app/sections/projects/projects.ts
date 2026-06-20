@@ -23,4 +23,8 @@ export class Projects {
     if (value < -half) value += this.initiatives.length;
     return value;
   }
+
+  depth(index: number): number {
+    return Math.min(Math.abs(this.offset(index)), 1);
+  }
 }

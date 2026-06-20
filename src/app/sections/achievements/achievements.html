@@ -5,7 +5,7 @@
 
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-header" appReveal>
 
       <span class="section-tag">
         Achievements
@@ -21,7 +21,7 @@
 
       @for(item of achievements; track item.label){
 
-      <div class="stat-card">
+      <div class="stat-card" appReveal>
 
         <h3>
           {{ item.value }}

@@ -17,6 +17,7 @@
             class="project-card"
             [class.is-active]="index === active()"
             [style.--offset]="offset(index)"
+            [style.--depth]="depth(index)"
             [attr.aria-label]="'Show ' + project.title"
             [attr.aria-pressed]="index === active()"
             (click)="active.set(index)"

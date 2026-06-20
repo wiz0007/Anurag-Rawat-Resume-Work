@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { RevealDirective } from '../../shared/reveal/reveal.directive';
 
 @Component({
   selector: 'app-experience',
   standalone: true,
+  imports: [RevealDirective],
   templateUrl: './experience.html',
   styleUrl: './experience.scss'
 })

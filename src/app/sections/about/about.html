@@ -1,100 +1,32 @@
-<section
-  class="about section"
-  id="about"
->
-
+<section class="about section" id="about" aria-labelledby="about-title">
   <div class="container">
+    <header class="section-header" appReveal>
+      <span class="section-tag">Interactive workspace</span>
+      <h2 id="about-title">The systems behind<br />a better employee experience.</h2>
+      <p>Explore the objects in this digital workspace to see how I think about people operations.</p>
+    </header>
 
-    <div class="section-header">
-
-      <span class="section-tag">
-        About Me
-      </span>
-
-      <h2>
-        Passionate About People,
-        Processes & Workplace Excellence
-      </h2>
-
-    </div>
-
-    <div class="about-grid">
-
-      <div class="about-content">
-
-        <p>
-          I am an HR Coordinator with experience in
-          recruitment, onboarding, employee
-          coordination, vendor management and
-          workplace administration.
-
-          My focus is on creating smooth HR
-          processes, maintaining strong employee
-          relationships and supporting business
-          operations through effective people
-          management.
-        </p>
-
-        <p>
-          Through my experience in hospitality and
-          HR operations, I have developed strong
-          communication, organizational and
-          problem-solving skills while working with
-          diverse teams and stakeholders.
-        </p>
-
+    <div class="about__stage" appReveal [revealDelay]="0.1">
+      <div class="about__scene">
+        <app-scene-canvas variant="workspace" label="Abstract 3D HR workspace with monitor, laptop and books" />
+        <div class="about__scene-label"><span>Live workspace</span> Move your pointer to explore</div>
       </div>
 
-      <div class="strengths-grid">
-
-        <div class="strength-card">
-          <i class="fa-solid fa-user-plus"></i>
-
-          <h3>Recruitment</h3>
-
-          <p>
-            Candidate sourcing,
-            screening and hiring support.
-          </p>
+      <div class="about__console">
+        <div class="about__tabs" role="tablist" aria-label="Profile topics">
+          @for (item of hotspots; track item.label; let index = $index) {
+            <button type="button" role="tab" [attr.aria-selected]="active() === index" [class.is-active]="active() === index" (click)="active.set(index)">
+              <span>{{ item.icon }}</span>{{ item.label }}
+            </button>
+          }
         </div>
-
-        <div class="strength-card">
-          <i class="fa-solid fa-id-card"></i>
-
-          <h3>Onboarding</h3>
-
-          <p>
-            Joining formalities and employee
-            documentation.
-          </p>
+        <div class="about__detail" role="tabpanel" aria-live="polite">
+          <span class="about__index">{{ hotspots[active()].icon }}</span>
+          <h3>{{ hotspots[active()].title }}</h3>
+          <p>{{ hotspots[active()].text }}</p>
+          <a href="#experience">Trace my journey <span aria-hidden="true">→</span></a>
         </div>
-
-        <div class="strength-card">
-          <i class="fa-solid fa-users"></i>
-
-          <h3>Coordination</h3>
-
-          <p>
-            Team communication and operational
-            support.
-          </p>
-        </div>
-
-        <div class="strength-card">
-          <i class="fa-solid fa-file-lines"></i>
-
-          <h3>Documentation</h3>
-
-          <p>
-            HR records, reports and compliance
-            support.
-          </p>
-        </div>
-
       </div>
-
     </div>
-
   </div>
-
 </section>

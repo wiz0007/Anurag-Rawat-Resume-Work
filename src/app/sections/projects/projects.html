@@ -1,0 +1,39 @@
+<section class="projects section" id="projects" aria-labelledby="projects-title">
+  <div class="container">
+    <header class="projects__header" appReveal>
+      <div><span class="section-tag">Selected initiatives</span><h2 id="projects-title">Operational work,<br />designed with intent.</h2></div>
+      <div class="projects__controls">
+        <button type="button" (click)="move(-1)" aria-label="Previous initiative">←</button>
+        <span>{{ active() + 1 }} / {{ initiatives.length }}</span>
+        <button type="button" (click)="move(1)" aria-label="Next initiative">→</button>
+      </div>
+    </header>
+
+    <div class="projects__viewport" appReveal [revealDelay]="0.1">
+      <div class="projects__rail">
+        @for (project of initiatives; track project.title; let index = $index) {
+          <button
+            type="button"
+            class="project-card"
+            [class.is-active]="index === active()"
+            [style.--offset]="offset(index)"
+            [attr.aria-label]="'Show ' + project.title"
+            [attr.aria-pressed]="index === active()"
+            (click)="active.set(index)"
+          >
+            <span class="project-card__number">{{ project.number }}</span>
+            <span class="project-card__visual"><i></i><i></i><i></i></span>
+            <span class="project-card__category">{{ project.category }}</span>
+            <strong>{{ project.title }}</strong>
+          </button>
+        }
+      </div>
+    </div>
+
+    <article class="project-detail" aria-live="polite">
+      <div><span>{{ selected().number }}</span><h3>{{ selected().title }}</h3></div>
+      <p>{{ selected().summary }}</p>
+      <ul>@for (tag of selected().tags; track tag) { <li>{{ tag }}</li> }</ul>
+    </article>
+  </div>
+</section>

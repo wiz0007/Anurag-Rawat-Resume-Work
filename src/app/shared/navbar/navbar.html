@@ -1,27 +1,14 @@
-<nav class="navbar">
-  <div class="container navbar__wrapper">
-
-    <a
-      class="logo"
-      href="#home"
-      aria-label="Go to hero section"
-    >
-      AR
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <a
-      href="#contact"
-      class="resume-btn"
-    >
-      Get In Touch
-    </a>
-
+<nav class="navbar" [class.is-scrolled]="scrolled()" aria-label="Primary navigation">
+  <div class="container navbar__inner">
+    <a class="logo" href="#home" aria-label="Anurag Rawat, home" (click)="close()"><span>AR</span><small>People operations</small></a>
+    <button class="menu-toggle" type="button" [attr.aria-expanded]="menuOpen()" aria-controls="primary-menu" aria-label="Toggle navigation" (click)="menuOpen.set(!menuOpen())"><span></span><span></span></button>
+    <div class="nav-panel" id="primary-menu" [class.is-open]="menuOpen()">
+      <a href="#about" (click)="close()">About</a>
+      <a href="#skills" (click)="close()">Expertise</a>
+      <a href="#projects" (click)="close()">Initiatives</a>
+      <a href="#experience" (click)="close()">Experience</a>
+      <a href="#contact" (click)="close()">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
   </div>
 </nav>

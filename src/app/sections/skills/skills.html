@@ -1,36 +1,26 @@
-<section
-  class="skills section"
-  id="skills"
->
-
-  <div class="container">
-
-    <div class="section-header">
-
-      <span class="section-tag">
-        Core Expertise
-      </span>
-
-      <h2>
-        HR Skills & Professional Competencies
-      </h2>
-
+<section class="skills section" id="skills" aria-labelledby="skills-title">
+  <div class="container skills__layout">
+    <div class="skills__copy" appReveal>
+      <span class="section-tag">Capability orbit</span>
+      <h2 id="skills-title">Skills working<br />in one system.</h2>
+      <p>Strong HR operations happen when process knowledge, people skills and practical tools reinforce each other.</p>
+      <div class="skills__filters" role="tablist" aria-label="Skill categories">
+        @for (category of categories; track category) {
+          <button type="button" role="tab" [attr.aria-selected]="activeCategory() === category" [class.is-active]="activeCategory() === category" (click)="activeCategory.set(category)">{{ category }}</button>
+        }
+      </div>
+      <div class="skills__list" aria-live="polite">
+        @for (skill of visibleSkills(); track skill.name) {
+          <div class="skill-row">
+            <div><strong>{{ skill.name }}</strong><span>{{ skill.level }}%</span></div>
+            <div class="skill-row__track"><span [style.width.%]="skill.level"></span></div>
+          </div>
+        }
+      </div>
     </div>
-
-    <div class="skills-grid">
-
-      @for(skill of skills; track skill){
-
-        <div class="skill-card">
-
-          {{ skill }}
-
-        </div>
-
-      }
-
+    <div class="skills__scene" appReveal [revealDelay]="0.12">
+      <app-scene-canvas variant="skills" label="Orbiting 3D skill nodes around a central sphere" />
+      <div class="skills__legend"><span></span>Interactive capability system</div>
     </div>
-
   </div>
-
 </section>

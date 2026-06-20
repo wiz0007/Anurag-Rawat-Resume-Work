@@ -1,74 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
-@use "./styles/variables" as *;
-@use "./styles/mixins" as *;
-@use "./styles/animations";
+@use './styles/variables' as *;
 
-html {
-  scroll-behavior: smooth;
+:root {
+  color-scheme: dark;
+  --bg: #050811;
+  --surface: #0b1120;
+  --text: #f8fafc;
+  --muted: #8b9bb2;
+  --cyan: #67e8f9;
+  --violet: #a78bfa;
 }
 
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background:
-    radial-gradient(circle at 16% 12%, rgba(139, 92, 246, 0.22), transparent 28rem),
-    radial-gradient(circle at 88% 22%, rgba(34, 211, 238, 0.14), transparent 30rem),
-    linear-gradient(135deg, #070812 0%, #10131f 52%, #17111f 100%);
-  color: $text-primary;
+html { scroll-behavior: smooth; overflow-x: hidden; background: var(--bg); }
+body { margin: 0; min-width: 320px; overflow-x: hidden; color: var(--text); background: radial-gradient(circle at 82% 9%, rgba(76, 29, 149, 0.18), transparent 32rem), radial-gradient(circle at 7% 38%, rgba(8, 145, 178, 0.1), transparent 30rem), var(--bg); font-family: Inter, Arial, sans-serif; }
+* { box-sizing: border-box; }
+::selection { color: #05101a; background: #67e8f9; }
+a, button, input, textarea { border-radius: 0; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid #67e8f9; outline-offset: 3px; }
+.container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+.section { position: relative; padding: 118px 0; overflow: clip; }
+.section-header h2, .skills h2, .projects h2, .contact h2 { margin: 15px 0 20px; color: #f8fafc; font: 700 3.2rem/1.08 Poppins, Inter, sans-serif; letter-spacing: 0; }
+.section-tag { color: #67e8f9; font-size: 0.72rem; font-weight: 780; text-transform: uppercase; letter-spacing: 0.12em; }
+
+/* Supporting sections inherit the same quiet depth language as the interactive scenes. */
+.timeline-card, .education-card, .cert-card, .stat-card {
+  border: 1px solid rgba(125, 211, 252, 0.16) !important;
+  background: linear-gradient(145deg, rgba(20, 30, 49, 0.82), rgba(8, 12, 24, 0.88)) !important;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22) !important;
+  transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease !important;
 }
+.timeline-card:hover, .education-card:hover, .cert-card:hover, .stat-card:hover { transform: translateY(-6px) !important; border-color: rgba(103, 232, 249, 0.48) !important; box-shadow: 0 28px 65px rgba(0, 0, 0, 0.34), 0 0 30px rgba(34, 211, 238, 0.06) !important; }
 
-* {
-  box-sizing: border-box;
-}
-
-.container {
-  width: min(1200px, 90%);
-  margin: auto;
-}
-
-.section {
-  padding: 100px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-h1,h2,h3,h4 {
-  font-family: "Poppins", sans-serif;
-}
-
-.section-header {
-  color: $text-primary;
-  animation: fadeUp 0.75s ease both;
-}
-
-.section-tag {
-  color: $accent;
-  text-transform: uppercase;
-  letter-spacing: 0;
-}
-
-@media (max-width: 640px) {
-  .container {
-    width: min(100% - 28px, 1200px);
-  }
-
-  .section {
-    padding: 72px 0;
-  }
-
-  .section-header h2 {
-    font-size: 2rem;
-    line-height: 1.18;
-  }
+@media (max-width: 760px) {
+  .container { width: min(100% - 28px, 1180px); }
+  .section { padding: 84px 0; }
+  .section-header h2, .skills h2, .projects h2, .contact h2 { font-size: 2.35rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms;
-    animation-iteration-count: 1;
-    scroll-behavior: auto;
-    transition-duration: 0.01ms;
-  }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }

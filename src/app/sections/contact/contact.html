@@ -1,58 +1,24 @@
-<section
-  class="contact section"
-  id="contact"
->
-
-  <div class="container">
-
-    <div class="contact-box">
-
-      <span class="section-tag">
-        Contact
-      </span>
-
-      <h2>
-        Let's Connect
-      </h2>
-
-      <p>
-        Interested in discussing HR operations,
-        recruitment, employee engagement or
-        workplace excellence?
-      </p>
-
-      <div class="contact-items">
-
-        <a
-          class="contact-item"
-          href="mailto:anurag123ksp@gmail.com"
-        >
-          <span>Email</span>
-          <strong>anurag123ksp@gmail.com</strong>
-        </a>
-
-        <a
-          class="contact-item"
-          href="tel:+916395991258"
-        >
-          <span>Phone</span>
-          <strong>+91 6395991258</strong>
-        </a>
-
-        <a
-          class="contact-item"
-          href="https://www.google.com/maps/search/?api=1&query=Kashipur%2C%20Uttarakhand"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>Location</span>
-          <strong>Kashipur, Uttarakhand</strong>
-        </a>
-
+<section class="contact section" id="contact" aria-labelledby="contact-title">
+  <div class="contact__scene" aria-hidden="true"><app-scene-canvas variant="contact" label="Floating neon contact sculpture" /></div>
+  <div class="container contact__layout">
+    <div class="contact__copy" appReveal>
+      <span class="section-tag">Start a conversation</span>
+      <h2 id="contact-title">Let’s build a better<br />people experience.</h2>
+      <p>For HR coordination, recruitment support and people operations opportunities.</p>
+      <div class="contact__links">
+        <a href="mailto:anurag123ksp@gmail.com"><span>Email</span><strong>anurag123ksp&#64;gmail.com</strong></a>
+        <a href="tel:+916395991258"><span>Phone</span><strong>+91 6395991258</strong></a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Kashipur%2C%20Uttarakhand" target="_blank" rel="noopener noreferrer"><span>Based in</span><strong>Kashipur, Uttarakhand</strong></a>
       </div>
-
     </div>
 
+    <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()" appReveal [revealDelay]="0.12" novalidate>
+      <div class="terminal-bar"><span></span><span></span><span></span><strong>new-message.hr</strong></div>
+      <label><span>Name</span><input type="text" formControlName="name" autocomplete="name" placeholder="Your name" />@if (form.controls.name.touched && form.controls.name.invalid) { <small>Please enter your name.</small> }</label>
+      <label><span>Email</span><input type="email" formControlName="email" autocomplete="email" placeholder="you@example.com" />@if (form.controls.email.touched && form.controls.email.invalid) { <small>Enter a valid email address.</small> }</label>
+      <label><span>Message</span><textarea formControlName="message" rows="5" placeholder="Tell me about the opportunity"></textarea>@if (form.controls.message.touched && form.controls.message.invalid) { <small>Please add at least 12 characters.</small> }</label>
+      <button type="submit"><span>Send message</span><span aria-hidden="true">↗</span></button>
+      @if (sent()) { <p class="contact__sent" role="status">Your email app is opening with the message prepared.</p> }
+    </form>
   </div>
-
 </section>

@@ -1,132 +1,21 @@
-@use "../../../styles/variables" as *;
-
-.navbar {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-
-  backdrop-filter: blur(16px);
-
-  background: rgba(8, 10, 18, 0.76);
-
-  border-bottom: 1px solid $border;
-
-  &__wrapper {
-    height: 80px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-.logo {
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: $primary;
-  letter-spacing: 0;
-  animation: fadeUp 0.6s ease both;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  a {
-    display: inline-flex;
-    min-height: 40px;
-    align-items: center;
-    text-decoration: none;
-    color: $text-primary;
-    font-weight: 500;
-    transition: $transition;
-
-    &:hover {
-      color: $accent;
-    }
-
-    &:focus-visible {
-      outline: 2px solid $accent;
-      outline-offset: 4px;
-      border-radius: 6px;
-    }
-  }
-}
-
-.resume-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 46px;
-  background: linear-gradient(135deg, $primary, $accent);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 700;
-  box-shadow: 0 12px 28px rgba(139, 92, 246, 0.28);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  animation: fadeUp 0.6s ease 0.12s both;
-}
-
-.resume-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 34px rgba(34, 211, 238, 0.22);
-}
-
-.logo:focus-visible,
-.resume-btn:focus-visible {
-  outline: 2px solid $accent;
-  outline-offset: 4px;
-}
-
-@media (max-width: 760px) {
-  .navbar {
-    &__wrapper {
-      height: auto;
-      min-height: 76px;
-      gap: 1rem;
-      flex-wrap: wrap;
-      padding: 14px 0;
-    }
-  }
-
-  .nav-links {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 1.25rem;
-    font-size: 0.95rem;
-  }
-
-  .resume-btn {
-    padding: 10px 15px;
-    font-size: 0.92rem;
-  }
-}
-
-@media (max-width: 420px) {
-  .navbar {
-    &__wrapper {
-      justify-content: center;
-    }
-  }
-
-  .logo,
-  .resume-btn {
-    flex: 1 1 auto;
-    text-align: center;
-  }
-
-  .nav-links {
-    gap: 0.8rem;
-    font-size: 0.86rem;
-    overflow-x: auto;
-    padding-bottom: 2px;
-  }
+.navbar { position: fixed; inset: 0 0 auto; z-index: 100; height: 88px; display: flex; align-items: center; border-bottom: 1px solid transparent; transition: height 220ms ease, background 220ms ease, border-color 220ms ease; }
+.navbar.is-scrolled { height: 72px; border-color: rgba(148, 163, 184, 0.14); background: rgba(5, 8, 17, 0.82); backdrop-filter: blur(18px); }
+.navbar__inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 34px; }
+.logo { display: flex; align-items: center; gap: 13px; color: #f8fafc; text-decoration: none; }
+.logo span { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid rgba(103, 232, 249, 0.45); color: #67e8f9; font-weight: 850; background: rgba(15, 23, 42, 0.72); box-shadow: inset 0 0 18px rgba(34, 211, 238, 0.1); }
+.logo small { color: #7f91a8; font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.nav-panel { justify-self: center; display: flex; align-items: center; gap: 30px; }
+.nav-panel a { position: relative; padding: 10px 0; color: #a5b4c7; text-decoration: none; font-size: 0.78rem; font-weight: 650; }
+.nav-panel a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 3px; height: 1px; background: #67e8f9; transition: right 180ms ease; }
+.nav-panel a:hover::after { right: 0; }
+.nav-cta { min-height: 42px; padding: 0 16px; display: inline-flex; align-items: center; gap: 14px; border: 1px solid rgba(103, 232, 249, 0.34); color: #e0f2fe; text-decoration: none; font-size: 0.76rem; font-weight: 750; background: rgba(15, 23, 42, 0.58); }
+.menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid rgba(148, 163, 184, 0.18); background: rgba(15, 23, 42, 0.74); }
+.menu-toggle span { display: block; width: 18px; height: 1px; margin: 5px auto; background: #e0f2fe; }
+@media (max-width: 840px) {
+  .navbar__inner { grid-template-columns: auto 1fr auto; }
+  .logo small, .nav-cta { display: none; }
+  .menu-toggle { display: block; justify-self: end; grid-column: 3; cursor: pointer; }
+  .nav-panel { position: fixed; inset: 72px 14px auto; padding: 16px; display: grid; gap: 4px; border: 1px solid rgba(125, 211, 252, 0.2); background: rgba(6, 10, 22, 0.96); box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5); transform: translateY(-12px); opacity: 0; visibility: hidden; transition: 180ms ease; }
+  .nav-panel.is-open { transform: translateY(0); opacity: 1; visibility: visible; }
+  .nav-panel a { padding: 14px; }
 }

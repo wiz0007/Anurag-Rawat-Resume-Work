@@ -1,94 +1,34 @@
-<section class="hero" id="home">
-  <div class="container hero__wrapper">
-
-    <div class="hero__content">
-      <span class="badge">
-        {{ profile.role }}
-      </span>
-
-      <h1>
-        {{ profile.name }}
-      </h1>
-
-      <h2 class="seo-only">
-        {{ profile.tagline }}
-      </h2>
-
-      <p>
-        I coordinate people operations, recruitment support and onboarding
-        workflows with a steady focus on clear communication, organized
-        documentation and better employee experiences.
-      </p>
-
-      <div class="hero__actions">
-        <a class="primary-btn" href="#contact">
-          Contact Me
-        </a>
-
-        <a class="secondary-btn" href="#about">
-          View Profile
-        </a>
-      </div>
-
-      <div class="hero__slider" aria-label="HR service highlights">
-        <div class="hero__slide hero__slide--one">
-          <span>Recruitment Support</span>
-          <strong>Screening, sourcing and hiring coordination.</strong>
-        </div>
-
-        <div class="hero__slide hero__slide--two">
-          <span>Employee Onboarding</span>
-          <strong>Smooth joining workflows and documentation.</strong>
-        </div>
-
-        <div class="hero__slide hero__slide--three">
-          <span>People Operations</span>
-          <strong>Clear communication across teams and vendors.</strong>
-        </div>
-      </div>
-
-      <div class="hero__highlights" aria-label="Professional highlights">
-        <div>
-          <strong>HR</strong>
-          <span>Operations</span>
-        </div>
-
-        <div>
-          <strong>Recruitment</strong>
-          <span>Support</span>
-        </div>
-
-        <div>
-          <strong>Employee</strong>
-          <span>Coordination</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero__visual">
-      <div class="hero__photo-stage">
-        <div class="hero__halo"></div>
-
-
-        <!-- image in public folder -->
-        <div class="hero__image">
-          <img
-            src="images/AnuragImg.png"
-            alt="Anurag Rawat"
-            decoding="async"
-            fetchpriority="high"
-          />
-        </div>
-
-        <div class="hero__orbit hero__orbit--one"></div>
-        <div class="hero__orbit hero__orbit--two"></div>
-      </div>
-
-      <div class="hero__note">
-        <span>Available for HR roles</span>
-        <strong>HR Coordinator</strong>
-      </div>
-    </div>
-
+<section class="hero" id="home" aria-labelledby="hero-title">
+  <div class="hero__scene" aria-hidden="true">
+    <app-scene-canvas variant="hero" [eager]="true" label="Floating neon geometric sculpture" />
   </div>
+
+  <div class="container hero__layout">
+    <div class="hero__content" appReveal>
+      <p class="eyebrow"><span></span>{{ profile.role }} / People Operations</p>
+      <h1 id="hero-title">{{ profile.name }}</h1>
+      <h2>{{ profile.tagline }}</h2>
+      <p class="hero__intro">
+        I turn recruitment, onboarding and employee coordination into clear,
+        human experiences that help teams do their best work.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="#projects">View Initiatives</a>
+        <a class="button button--quiet" href="#contact">Contact Me</a>
+      </div>
+      <dl class="hero__metrics" aria-label="Professional focus">
+        <div><dt>100+</dt><dd>Interviews coordinated</dd></div>
+        <div><dt>50+</dt><dd>Onboardings supported</dd></div>
+        <div><dt>4</dt><dd>Core HR disciplines</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero__portrait" appReveal [revealDelay]="0.12">
+      <div class="hero__portrait-frame">
+        <img src="images/AnuragImage.png" alt="Anurag Rawat, HR Coordinator" fetchpriority="high" decoding="async" />
+        <div class="hero__status"><span></span>Open to meaningful HR opportunities</div>
+      </div>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#about" aria-label="Scroll to about section"><span></span>Explore</a>
 </section>
